@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
-const mongoUrl = 'mongodb://localhost:27017/local'
+require('dotenv').config
+const onlineurl = process.env.onlineUrl || 'mongodb+srv://aliluhar:Luhar123@cluster0.gji0j.mongodb.net/'
+//constmongoUrl = 'mongodb://localhost:27017/local'
+const mongoUrl = 'mongodb+srv://aliluhar:Luhar123@cluster0.gji0j.mongodb.net/'
 
-mongoose.connect( mongoUrl  );
+mongoose.connect( onlineurl );
 const db = mongoose.connection;
 
 db.on('connected', ()=>{

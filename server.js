@@ -7,6 +7,7 @@ const { errorToJSON } = require('next/dist/server/render')
 const { menu } = require('./model/menu')
 const personRoute = require('./routes/personRoutes')
 const menuRoute = require('./routes/menuRoutes')
+require('dotenv').config()
 
 app.use(bodyParser.json())
 
@@ -30,5 +31,5 @@ app.use('/person',personRoute)
 
 app.use('/menu', menuRoute)
 
-
-app.listen(3000, ()=>{console.log('listening on port 3000')})
+const port = process.env.port || 3000
+app.listen(port, ()=>{console.log('listening on port 3000')})
